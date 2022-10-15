@@ -1,0 +1,21 @@
+{
+  "name": "tutoring",
+  "version": "1.0.0",
+  "description": "app for schedule of tutor",
+  "main": "app/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app/index.js"
+  },
+  "keywords": [
+    "tutor",
+    "schedule"
+  ],
+  "author": "Andrii_Prudnikov",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "fastify": "^4.8.1",
+    "pg-pool": "^3.5.2"
+  }
+}

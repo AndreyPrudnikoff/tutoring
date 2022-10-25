@@ -3,6 +3,7 @@ import { pool } from '../database/index.js'
 import * as dotenv from 'dotenv'
 import cors from '@fastify/cors'
 import jwt from '@fastify/jwt'
+import authRoutes from "./routes/auth.js"
 
 dotenv.config()
 
@@ -11,8 +12,9 @@ const fastify = Fastify({
   logger: true
 })
 
-fastify.register(cors, {origin: []})
+fastify.register(cors, {origin: ['http://localhost:4200']})
 fastify.register(jwt, {secret: 'supersecret'})
+fastify.register(authRoutes)
 
 
 

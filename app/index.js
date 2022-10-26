@@ -16,10 +16,18 @@ fastify.register(cors, {origin: ['http://localhost:4200']})
 fastify.register(jwt, {secret: 'supersecret'})
 fastify.register(authRoutes)
 
-
-
-fastify.get('/', async (request, reply) => {
-  return { hello: 'world' }
+fastify.decorate("auth", async function (request, reply) {
+  try {
+    await request.jwtVerify(request.raw.headers.authorization, (err, decode) => {
+      if (err) {
+        reply.status(401).send({statusCode: 401, message: 'Unauthorized'})
+      } else if (3600 < (Math.round(Date.now() / 1000) - decode.iat)) {
+        reply.status(401).send({statusCode: 401, message: 'Unauthorized'})
+      }
+    })
+  } catch (err) {
+    reply.send(err)
+  }
 })
 
 

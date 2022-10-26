@@ -4,6 +4,7 @@ import * as dotenv from 'dotenv'
 import cors from '@fastify/cors'
 import jwt from '@fastify/jwt'
 import authRoutes from "./routes/auth.js"
+import getSchedule from "./routes/schedule.js"
 
 dotenv.config()
 
@@ -15,6 +16,7 @@ const fastify = Fastify({
 fastify.register(cors, {origin: ['http://localhost:4200']})
 fastify.register(jwt, {secret: 'supersecret'})
 fastify.register(authRoutes)
+fastify.register(getSchedule)
 
 fastify.decorate("auth", async function (request, reply) {
   try {

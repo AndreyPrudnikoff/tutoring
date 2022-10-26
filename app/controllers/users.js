@@ -40,4 +40,3 @@ export const deleteUser = async () => {
     console.log('DeleteUser In progress')
 }
 
-export default {createUser, getUser, updateUser, deleteUser}

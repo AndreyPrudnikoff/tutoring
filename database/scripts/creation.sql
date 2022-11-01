@@ -27,11 +27,17 @@ CREATE TABLE lessons
     comment       text,
     PRIMARY KEY (lesson_id)
 );
-CREATE TABLE user_lessons
+CREATE TABLE tutor_lessons
 (
     id        serial NOT NULL,
-    tutor_id   uuid   NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
-    student_id   uuid   NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+    user_id   uuid   NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+    lesson_id uuid   NOT NULL,
+    PRIMARY KEY (id)
+);
+CREATE TABLE student_lessons
+(
+    id        serial NOT NULL,
+    user_id   uuid   NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
     lesson_id uuid   NOT NULL,
     PRIMARY KEY (id)
 );

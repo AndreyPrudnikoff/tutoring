@@ -9,11 +9,11 @@ const authRoutes = (fastify, option, done) => {
     fastify.post('/api/login', async (request, reply) => {
         const result = await getUser(request.body)
         if (result.success) {
-            const {user_id, first_name, last_name, phone, email, user_role} = result.data
+            const {user_id, first_name, last_name, phone, email} = result.data
             reply.status(result.success ? 200 : 422)
                 .send({
                     success: result.success,
-                    data: {user_id, first_name, last_name, phone, email, user_role},
+                    data: {user_id, first_name, last_name, phone, email},
                     token: fastify.jwt.sign({user_id})
                 })
         } else {

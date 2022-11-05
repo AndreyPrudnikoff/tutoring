@@ -5,16 +5,14 @@ const insertLessons = `INSERT INTO lessons ( lesson_id, start_time, end_time, st
                        VALUES ($1, $2, $3, $4, $5);`
 const insertUserLessons = `INSERT INTO user_lessons (tutor_id, student_id, lesson_id)
                            VALUES ($1, $2, $3);`
-const select = `SELECT u.tutor_id, u.student_id, l.lesson_id, l.start_time, l.end_time, l.status_lesson, l.comment
-                FROM user_lessons as u
-                         JOIN lessons as l
-                              ON u.lesson_id = l.lesson_id
+const select = `SELECT lesson_id, start_time, end_time, status_lesson, comment, student_id, tutor_id
+                FROM lessons
                 WHERE key condition 'value'`
 export const getLessons = async ({key = 'status_lesson', condition = '=', value = 'expected'}) => {
     try {
         const queryString = select.replace('key', key)
-            .replace('condition', condition)
-            .replace('value', value)
+                                  .replace('condition', condition)
+                                  .replace('value', value)
         const result = await pool.query(queryString)
         return {success: true, data: result.rows}
     } catch ({message}) {

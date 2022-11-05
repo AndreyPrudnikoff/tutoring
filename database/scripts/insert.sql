@@ -1,6 +1,15 @@
-INSERT INTO lessons ( lesson_id, start_time, end_time, status_lesson, comment )
-    VALUES ('aa38b6e0-585c-11ed-9b6a-0242ac120004', '2022-11-11 14:00:00', '2022-11-11 15:00:00', 'expected', 'Whahaha');
-INSERT INTO tutor_lessons ( user_id, lesson_id )
-    VALUES ( 'ccc16cdb-b074-4b4d-86ed-9b88fdec4f4b', 'aa38b6e0-585c-11ed-9b6a-0242ac120004');
-INSERT INTO student_lessons ( user_id, lesson_id )
-    VALUES ( '7ee97c5d-85af-4e8e-8b2a-1becbec60d25', 'aa38b6e0-585c-11ed-9b6a-0242ac120004');
+
+INSERT INTO lessons ( lesson_id, start_time, end_time, status_lesson, comment, subject_id, tutor_id, student_id )
+    VALUES (
+        'aa38b6e0-585c-11ed-9b6a-0242ac120001',
+        '2022-11-11 14:00:00',
+        '2022-11-11 15:00:00',
+        'expected',
+        'Whahaha',
+        'a1accafe-5d32-11ed-9b6a-0242ac120002',
+        '51da6ca0-0768-4070-875e-6593ed448bb6',
+        '600607f4-7bf9-4802-b284-c203dd8eb389'
+        );
+INSERT INTO subjects (subject_id, subject_name)
+    VALUES ('a1accafe-5d32-11ed-9b6a-0242ac120002', 'math');
+

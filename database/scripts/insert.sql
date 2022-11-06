@@ -1,4 +1,3 @@
-
 INSERT INTO lessons ( lesson_id, start_time, end_time, status_lesson, comment, subject_id, tutor_id, student_id )
     VALUES (
         'aa38b6e0-585c-11ed-9b6a-0242ac120001',

@@ -13,7 +13,7 @@ const fastify = Fastify({
   logger: true
 })
 
-fastify.register(cors, {origin: ['http://localhost:4200']})
+fastify.register(cors, {origin: ['*']})
 fastify.register(jwt, {secret: 'supersecret'})
 fastify.register(authRoutes)
 fastify.register(getSchedule)
@@ -23,7 +23,7 @@ fastify.decorate("auth", async function (request, reply) {
     await request.jwtVerify(request.raw.headers.authorization, (err, decode) => {
       if (err) {
         reply.status(401).send({statusCode: 401, message: 'Unauthorized'})
-      } else if (3600 < (Math.round(Date.now() / 1000) - decode.iat)) {
+      } else if (36000 < (Math.round(Date.now() / 1000) - decode.iat)) {
         reply.status(401).send({statusCode: 401, message: 'Unauthorized'})
       }
     })

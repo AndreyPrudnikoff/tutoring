@@ -4,6 +4,9 @@
   "description": "app for schedule of tutor",
   "main": "app/index.js",
   "type": "module",
+  "engines": {
+    "node": "14.17.3"
+  },
   "scripts": {
     "start": "node app/index.js"
   },

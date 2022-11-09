@@ -13,7 +13,10 @@ const fastify = Fastify({
   logger: true
 })
 
-fastify.register(cors, {origin: ['*']})
+fastify.register(cors, {
+  origin: '*',
+  methods: 'GET,PUT,POST,DELETE,OPTIONS',
+})
 fastify.register(jwt, {secret: 'supersecret'})
 fastify.register(authRoutes)
 fastify.register(getSchedule)

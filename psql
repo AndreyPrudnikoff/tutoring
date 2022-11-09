@@ -1,0 +1,6 @@
+  Username:    postgres
+  Password:    yLPL6I8EexLjpdr
+  Hostname:    tutoring-db.internal
+  Proxy port:  5432
+  Postgres port:  5433
+  Connection string: postgres://postgres:yLPL6I8EexLjpdr@tutoring-db.internal:5432

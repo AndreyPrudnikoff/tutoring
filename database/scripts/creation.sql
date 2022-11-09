@@ -4,10 +4,13 @@ DATABASE IF EXISTS tutoring;
 CREATE
 DATABASE tutoring;
 
-CREATE TYPE status_lesson AS ENUM ('expected', 'completed', 'abandoned', 'canceled');
+DO $$ BEGIN
+    CREATE TYPE status_lesson AS ENUM ('expected', 'completed', 'abandoned', 'canceled');
+EXCEPTION
+    WHEN duplicate_object THEN null;
+END $$;
 
-
-CREATE TABLE students
+CREATE TABLE IF NOT EXISTS students
 (
     user_id    uuid     NOT NULL,
     first_name varchar(50)  NOT NULL,
@@ -17,7 +20,7 @@ CREATE TABLE students
     password   varchar(100) NOT NULL,
     PRIMARY KEY (user_id)
 );
-CREATE TABLE tutors
+CREATE TABLE IF NOT EXISTS tutors
 (
     user_id    uuid       NOT NULL,
     first_name varchar(50)  NOT NULL,
@@ -29,13 +32,13 @@ CREATE TABLE tutors
     PRIMARY KEY (user_id)
 );
 
-CREATE TABLE subjects
+CREATE TABLE IF NOT EXISTS subjects
 (
     subject_id  uuid               NOT NULL,
     subject_name     varchar(50)   NOT NULL,
     PRIMARY KEY (subject_id)
 );
-CREATE TABLE lessons
+CREATE TABLE IF NOT EXISTS lessons
 (
     lesson_id     uuid          NOT NULL,
     start_time    timestamp     NOT NULL,

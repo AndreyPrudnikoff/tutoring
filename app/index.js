@@ -7,7 +7,6 @@ import authRoutes from "./routes/auth.js"
 import getSchedule from "./routes/schedule.js"
 
 dotenv.config()
-
 const fastify = Fastify({
   logger: true
 })

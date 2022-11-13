@@ -8,7 +8,6 @@ import getSchedule from "./routes/schedule.js"
 
 dotenv.config()
 
-
 const fastify = Fastify({
   logger: true
 })

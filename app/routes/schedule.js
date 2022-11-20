@@ -10,8 +10,9 @@ const getSchedule = (fastify, option, done) => {
         }
     }
     fastify.post('/api/lessons/', {preValidation: fastify.auth}, async (request, reply) => {
+        const {user_id, role} = fastify.jwt.decode(request.headers.authorization.split(' ').pop())
         const {method, data} = request.body
-        const result = await handlers[method](reply, data)
+        const result = await handlers[method](reply, {...data, user_id, role})
         reply.status(result.success ? method === 'create' ? 201 : 200 : 422).send(result)
         done()
     })

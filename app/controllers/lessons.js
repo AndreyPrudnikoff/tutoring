@@ -12,7 +12,7 @@ export const getLessons = async ({user_id, time_range, role}) => {
             let str = select.replace('value', user_id)
                 .replace('user', role)
             if (time_range) {
-                str += `AND start_time >= '${time_range.more}' AND end_time <= '${time_range.less}'`
+                str += ` AND start_time >= '${time_range.more}' AND end_time <= '${time_range.less}'`
             }
             return str
         }

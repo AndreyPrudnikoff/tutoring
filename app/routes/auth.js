@@ -14,7 +14,7 @@ const authRoutes = (fastify, option, done) => {
                 .send({
                     success: result.success,
                     data: {user_id, first_name, last_name, phone, email},
-                    token: fastify.jwt.sign({user_id})
+                    token: fastify.jwt.sign({user_id, role: request.body.user_role})
                 })
         } else {
             reply.status(result.success ? 200 : 422).send(result)

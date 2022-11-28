@@ -1,13 +1,13 @@
 INSERT INTO lessons ( lesson_id, start_time, end_time, status_lesson, comment, subject_id, tutor_id, student_id )
     VALUES (
-        'aa38b6e0-585c-11ed-9b6a-0242ac120002',
-        '2022-12-21 14:00:00',
-        '2022-12-21 15:00:00',
+        'aa38b6e0-585c-11ed-9b6a-0242ac120006',
+        '2022-11-27 12:00:00',
+        '2022-11-27 12:30:00',
         'expected',
-        'Test lesson',
+        'Test lesson for bg',
         'a1accafe-5d32-11ed-9b6a-0242ac120002',
-        '313cf4a8-a1d4-4147-84e2-c5566903c270',
-        'df23e33e-2d72-40e2-8e14-9bb642a61e8f'
+        '51da6ca0-0768-4070-875e-6593ed448bb6',
+        '600607f4-7bf9-4802-b284-c203dd8eb389'
         );
 INSERT INTO subjects (subject_id, subject_name)
     VALUES ('a1accafe-5d32-11ed-9b6a-0242ac120002', 'math');
